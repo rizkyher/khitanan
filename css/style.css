@@ -1,0 +1,129 @@
+:root {
+  --bluepurple: #022353;
+  --bg: #0a0a0a;
+  --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+  min-height: 4000px;
+}
+
+body {
+  font-size: 1.2rem;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  position: fixed; /* Sticky di atas */
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 1000;
+  transition: transform 0.8s ease-in-out; /* Efek transisi menghilang */
+}
+
+/* Background Hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/bgweeding2.png);
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* filter: grayscale(); */
+}
+
+/* Efek menghilang */
+.hide-hero {
+  transform: translateY(-100%);
+}
+
+/* Tombol */
+
+.hero h1,
+.hero h4,
+.hero p,
+.undangan h1,
+.undangan h4,
+.undangan p,
+.undangan h2 {
+  text-shadow: var(--shadow);
+}
+
+/* .hero h1,
+.undangan h1 {
+  font-family: "Sacramento", cursive;
+  font-size: 6rem;
+} */
+
+/* .hero h4,
+.undangan h4 {
+  font-size: 1.8rem;
+  font-weight: 400;
+} */
+
+.hero h4.yth {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem
+}
+
+/* .hero p,
+.undangan p {
+  font-size: 1.4rem;
+} */
+
+.hero a,
+.undangan a {
+  color: var(--bluepurple);
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.hero a:hover,
+.undangan a:hover,
+.home a:hover,
+.info a:hover {
+  color: white;
+  background-color: var(--bluepurple);
+}
+
+.undangan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/bgweeding2.png);
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* filter: grayscale(); */
+}
+
+.undangan {
+  position: relative;
+  min-height: 100vh;
+}
+.undangan h2 {
+  margin-top: 20px;
+  font-size: 2rem;
+}
+.undangan main {
+  margin-top: 200px;
+}
+}
+.backdrop-blur {
+  backdrop-filter: blur(6px);
+}
