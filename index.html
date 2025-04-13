@@ -23,13 +23,23 @@
     .font-fancy {
       font-family: 'Great Vibes', cursive;
     }
+
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+    pointer-events: none;
+  }
+
+
+
   </style>
 </head>
 
 <body class="bg-[#fef9f5] text-[#3b3b3b] font-sans relative">
 
   <!-- HERO SECTION -->
-  <!-- <section id="hero" class="min-h-screen flex items-center justify-center text-center px-6"
+  <section id="hero" class="min-h-screen flex items-center justify-center text-center px-6"
     style="background-image: url(img/bg-home.png); background-size: cover; background-position: center;">
     <div class="flex flex-col items-center mt-24 space-y-4" data-aos="fade-up">
       <h1 class="text-2xl md:text-3xl font-fancy text-[#a8755c]">Walimatul Khitan</h1>
@@ -42,15 +52,15 @@
       <p class="text-base md:text-lg mt-4">Kepada Yth. <br> Bapak/Ibu/Saudara/i:</p>
       <h2 class="namaTamu font-semibold text-lg text-[#3b3b3b]"></h2>
 
-      <a href="#undangan" onclick="hideHero()"
+      <a href="#home" onclick="hideHero()"
         class="mt-6 px-6 py-3 bg-white rounded-full shadow-md text-[#022353] text-lg font-semibold hover:bg-[#f2e8e2] transition">
         <i class="fas fa-envelope mr-2"></i>Lihat Undangan
       </a>
     </div>
-  </section> -->
+  </section>
 
  <!-- MAIN SECTION -->
-<section id="undangan" class="min-h-screen flex flex-col items-center justify-center px-6 text-center py-20 relative"
+<section id="home" class="min-h-screen flex flex-col items-center justify-center px-6 text-center py-20 relative"
 style="background-image: url('img/bg-home.png'); background-size: cover; background-position: center;">
 
 <div class="flex flex-col items-center space-y-4 max-w-xl">
@@ -111,10 +121,11 @@ style="background-image: url('img/bg-home.png'); background-size: cover; backgro
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
-  AOS.init({
-    once: true,        // animasi hanya sekali saat muncul
-    duration: 1000     // durasi animasi (ms)
-  });
+AOS.init({
+  once: false,
+  duration: 1000,
+});
+
 </script>
 
   <script>
@@ -156,15 +167,8 @@ style="background-image: url('img/bg-home.png'); background-size: cover; backgro
     });
   </script>
   <script>
-    AOS.init({ once: false, duration: 1000 });
+    
 
-    function hideHero() {
-      const audio = document.getElementById("bgMusic");
-      audio.play().catch(e => {
-        console.log("Autoplay ditolak, interaksi user diperlukan:", e);
-      });
-      document.getElementById("hero").classList.add("hidden");
-    }
 
     function toggleMusic() {
       const audio = document.getElementById("bgMusic");
@@ -175,6 +179,24 @@ style="background-image: url('img/bg-home.png'); background-size: cover; backgro
       }
     }
   </script>
+
+<script>
+function hideHero() {
+  const audio = document.getElementById("bgMusic");
+  audio.play().catch(e => console.log("Autoplay error:", e));
+
+  const hero = document.getElementById("hero");
+  hero.classList.add("hidden");
+
+  setTimeout(() => {
+    const home = document.getElementById("home");
+    home.scrollIntoView({ behavior: "smooth" });
+    AOS.refresh(); // update posisi animasi
+  }, );
+}
+
+</script>
+
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a2e0f1f60a.js" crossorigin="anonymous"></script>
