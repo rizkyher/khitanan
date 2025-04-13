@@ -12,7 +12,7 @@ body {
 
 /* Hero Section */
 .hero {
-  position: fixed; /* Sticky di atas */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,12 +21,13 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
   z-index: 1000;
-  transition: transform 0.8s ease-in-out; /* Efek transisi menghilang */
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  overflow: hidden;
+
+  background-color: #fef9f5; /* fallback bg kalau gambar belum loading */
 }
 
-/* Background Hero */
 .hero::before {
   content: "";
   position: absolute;
@@ -34,13 +35,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(img/bgweeding2.png);
-  z-index: -1;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url("img/bg-home.png"); /* ganti sesuai gambar kamu */
   background-size: cover;
-  /* filter: grayscale(); */
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 1;
 }
+
+/* Saat disembunyikan */
 
 /* Efek menghilang */
 .hide-hero {
@@ -49,7 +52,7 @@ body {
 
 /* Tombol */
 
-.hero h1,
+/* .hero h1,
 .hero h4,
 .hero p,
 .undangan h1,
@@ -57,7 +60,7 @@ body {
 .undangan p,
 .undangan h2 {
   text-shadow: var(--shadow);
-}
+} */
 
 /* .hero h1,
 .undangan h1 {
@@ -71,18 +74,18 @@ body {
   font-weight: 400;
 } */
 
-.hero h4.yth {
+/* .hero h4.yth {
   font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 0.5rem
-}
+  margin-bottom: 0.5rem;
+} */
 
 /* .hero p,
 .undangan p {
   font-size: 1.4rem;
 } */
 
-.hero a,
+/* .hero a,
 .undangan a {
   color: var(--bluepurple);
   background-color: white;
@@ -109,10 +112,10 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  /* filter: grayscale(); */
-}
+  filter: grayscale();
+} */
 
-.undangan {
+/* .undangan {
   position: relative;
   min-height: 100vh;
 }
@@ -122,8 +125,8 @@ body {
 }
 .undangan main {
   margin-top: 200px;
-}
-}
+} */
+
 .backdrop-blur {
   backdrop-filter: blur(6px);
 }
