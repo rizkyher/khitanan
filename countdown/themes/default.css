@@ -4,7 +4,9 @@
 * Author : Vincent Loy <vincent.loy1@gmail.com>
 * Theme : Light Modern
 */
-
+:root {
+  --bluepurple: #a8755c;
+}
 .simply-countdown {
   overflow: hidden;
   display: flex;
